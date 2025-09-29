@@ -17,11 +17,14 @@ $date = "29.02.2025";
 function isValidDate(string $date, $format = "Y-m-d"): bool{
     $date_array = explode(".", $date);
     echo "<pre>";
-    print($date_array);
+    print_r($date_array);
     echo "</pre>";
+
+    echo "<p>Tag: $date_array[0] <br>";
+    echo "Monat: $date_array[1] <br>";
+    echo "Jahr: $date_array[0] </p>";
+
     return true;
-    // $d= DateTime::createFromFormat($format, $date);
-    // return $d && $d
 }
 
 isValidDate($date)
