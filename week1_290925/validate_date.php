@@ -47,10 +47,26 @@ function isValidDate(string $date, $format = "Y-m-d"): bool{
         echo "<p> $date_partkey : $datepartvalue </p>";
     }
 
-    if($date_array [0] <= $days_of_month[$date_array[1]]-1){
-        
+    // Tag auf Gültigkeit prüfen
+    if($date_array[0] >= 1 && $date_array[0] <= $days_of_month[$date_array[1]-1]){
+        echo "<p> Tage False</p>";
+        return false;
+    }else{
+        echo "<p> Tage Correct</p>";
     }
 
+    // Monat auf Gültigkeit prüfen
+    if($date_array[1] < 1 || $date_array[1]>12){
+        echo "<p> Tage Wow 1</p>";
+        return false;
+    }
+
+    // Jahr auf Gültigkeit prufen
+    if($date_array[2] < 0 || $date_array[2]>3000){
+        echo "<p> Tage Wow 2</p>";
+        return false;
+    }
+    
 
 
     return true;
