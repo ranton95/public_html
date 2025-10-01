@@ -19,6 +19,8 @@ function isLeapYear(int $year): bool{
     //     return true;
     // }
     // return false;
+
+
 }
 
 
@@ -48,6 +50,11 @@ function isValidDate(string $date, $format = "Y-m-d"): bool{
     $date_parts = ['Tag', 'Monat', 'Jahr'];
     $date_array = explode(".", $date);
     $days_of_month = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+    if(isLeapYear($date_array[2])){
+        $days_of_month[1]=29;
+    }
+
     $date_array_assoz = array_combine($date_parts, $date_array) ;
     print_r($date_array_assoz);
 
