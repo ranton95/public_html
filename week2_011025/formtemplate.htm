@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Template</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+        div.form-row {
+            background: silver;
+            padding: .2rem;
+            margin: .2rem;
+        }
+        label {
+            display: inline-block;
+            width: 7rem;
+        }
+
+        label::after {
+            content: ":";
+        }
+       
+        form {
+            border: 1px solid black;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        input[required] {
+            background: rgba(31, 225, 232, 0.2);
+            border: 1px solid #003366;
+        }
+
+    </style>
+</head>
+<body>
+<form action = "data_evaluate.php">
+   
+    <div class = "form-row">
+        <label for = "fn">First Name</label>
+        <input id = "ln" name = "firstname" placeholder = "Hans" title = "Please insert your first name here!">        
+    </div>
+
+    <div class = "form-row">
+        <label for = "ln">Last Name</label>
+        <input id = "ln" name = "lastname"  placeholder = "Mustermann" required>
+    </div> 
+
+    <div class = "form-row">
+        <label for = "pw">Password</label>
+        <input id = "pw" name = "password" type = "password" required>
+    </div> 
+
+    <div class = "form-row">
+        <label for = "email">Email</label>
+        <input id = "email" name = "email" type = "email" placeholder = "me@mydomain.com" required>
+    </div> 
+
+    <div class = "form-row">
+        <label for = "dob">Date of Birth</label>
+        <input id = "dob" name = "dob" type = "date">
+    </div> 
+
+    <div class = "form-row">
+        <label for = "country">Country</label>
+        <select id = "country" name = "country">
+            <option>n.a.</option>
+            <option>Germany</option>
+            <option>United States Of America</option>
+            <option>United Kingdom</option>
+        </select>
+    </div> 
+
+    <div class = "form-row">
+        <label for = "favs">Favorits</label>
+        <select id = "favs" name = "favs[]" multiple>
+            <option>web engineering</option>
+            <option>music</option>
+            <option>sports</option>
+            <option>bing watching</option>
+        </select>
+    </div> 
+
+   
+    
+    <div class = "form-row">
+        <button>Go!</button>
+    </div>
+  
+</form>    
+    
+</body>
+</html>

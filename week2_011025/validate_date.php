@@ -13,14 +13,6 @@
 
 $date = "29.02.2025";
 
-function isLeapYear(int $year): bool{
-    return (( $year % 4 == 0 && $year % 100 != 0) || $year % 400 == 0);
-    // if( ( $year % 4 == 0 && $year % 100 != 0) || $year % 400 == 0){
-    //     return true;
-    // }
-    // return false;
-}
-
 
 function isValidDate(string $date, $format = "Y-m-d"): bool{
     // $date_parts = ['Tag', 'Monat', 'Jahr'];
@@ -50,8 +42,6 @@ function isValidDate(string $date, $format = "Y-m-d"): bool{
     $days_of_month = [31,28,31,30,31,30,31,31,30,31,30,31];
     $date_array_assoz = array_combine($date_parts, $date_array) ;
     print_r($date_array_assoz);
-
-    echo gettype($date_parts[2]);
 
     foreach( $date_array_assoz as $date_partkey => $datepartvalue){
         echo "<p> $date_partkey : $datepartvalue </p>";
