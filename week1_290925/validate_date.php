@@ -11,7 +11,7 @@
 //validate.php
 // test at: http://localhost/~joseroyce/
 
-$date = "29.02.3025";
+$date = "32.02.2025";
 if(isValidDate($date)){
     echo "<p>Datum $date is Valid</p>";
 }else{
