@@ -37,10 +37,19 @@ echo "</prev>";
 //Äußere Schleife: Zeilen auslesen
 while(!feof($fp)){
     $row_array = fgetcsv($fp);
-    echo "<prev>";
-    print_r($header_array);
-    echo "</prev>";
+    // echo "<prev>";
+    // print_r($header_array);
+    // echo "</prev>";
+
+    for($i = 0; $i < count($row_array); $i++ ){
+        echo "$header_array[$i] : $row_array[$i]<br>";
+    }
+
 }
+
+
+
+
 
 
 ?>
