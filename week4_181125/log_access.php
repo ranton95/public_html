@@ -21,19 +21,14 @@ schreiben.
 Bonus:
 Geben Sie im Browser zusätzlich an, wie viele Zugriffe insgesamt schon
 protokolliert wurden.
-Tipp: Schauen Sie sich die Funktionen file() und readfile() an oder nutzen Sie
-fread() wie bisher.
-
 */    
 
 
+    date_default_timezone_set('Europe/Berlin');
 
-  // Log access: record current date/time and client IP to access_log.txt
-    date_default_timezone_set('Europe/Berlin'); // set as appropriate
+    $logFile = __DIR__ . '/log_access.txt';
+    
 
-    $logFile = __DIR__ . '/access_log.txt';
-
-    // Get timestamp and client IP (respect X-Forwarded-For if present)
     $now = date('Y-m-d H:i:s');
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
@@ -42,13 +37,10 @@ fread() wie bisher.
         $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
     }
 
-    // Prepare log entry
     $entry = sprintf("%s - %s\n", $now, $clientIp);
 
-    // Append the entry to the log file with an exclusive lock
     @file_put_contents($logFile, $entry, FILE_APPEND | LOCK_EX);
 
-    // Count total accesses (one line per access). Skip empty lines.
     $total = 0;
     if (file_exists($logFile)) {
         $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

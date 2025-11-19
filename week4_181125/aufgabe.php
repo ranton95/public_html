@@ -31,36 +31,72 @@ fread() wie bisher.
   // Log access: record current date/time and client IP to access_log.txt
     date_default_timezone_set('Europe/Berlin'); // set as appropriate
 
-    $logFile = __DIR__ . '/access_log.txt';
+    $file_path = __DIR__ . '/log_access.txt';
 
-    // Get timestamp and client IP (respect X-Forwarded-For if present)
     $now = date('Y-m-d H:i:s');
-    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-        $clientIp = trim($ips[0]);
-    } else {
-        $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
-    }
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $ip_now = $now . " " . $ip ."\n";
+    echo " Now time is: $ip_now " ;
 
-    // Prepare log entry
-    $entry = sprintf("%s - %s\n", $now, $clientIp);
 
-    // Append the entry to the log file with an exclusive lock
-    @file_put_contents($logFile, $entry, FILE_APPEND | LOCK_EX);
+    $log_file = fopen($file_path , "a+") or die("Unable to open file!");
+    // fwrite($log_file, $ip_now );
 
-    // Count total accesses (one line per access). Skip empty lines.
-    $total = 0;
-    if (file_exists($logFile)) {
-        $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        if ($lines !== false) {
-            $total = count($lines);
+    $count = 0;
+    $target = 100;
+    while(!feof($log_file ) && $count <= $target){
+        if($count != 1 ){
+            fwrite($log_file, $ip_now );
+        }
+        echo "Current Count:" . $count ;
+        fwrite($log_file, $ip_now );
+        $count += 1;    
+        echo "Updated Count:" . $count ;
+        if($count >= 100){
+            exit;
         }
     }
+    
+    fclose($log_file);
 
-    // Output a friendly message to the browser
-    echo '<h2>Zugriffsprotokoll</h2>';
-    echo '<p>Eintrag geschrieben: <code>' . htmlspecialchars(trim($entry), ENT_QUOTES, 'UTF-8') . '</code></p>';
-    echo '<p>Insgesamt protokollierte Zugriffe: <strong>' . (int)$total . '</strong></p>';
+
+
+
+
+
+
+
+
+
+
+
+
+    // if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    //     $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+    //     $clientIp = trim($ips[0]);
+    // } else {
+    //     $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
+    // }
+
+    // // Prepare log entry
+    // $entry = sprintf("%s - %s\n", $now, $clientIp);
+
+    // // Append the entry to the log file with an exclusive lock
+    // @file_put_contents($logFile, $entry, FILE_APPEND | LOCK_EX);
+
+    // // Count total accesses (one line per access). Skip empty lines.
+    // $total = 0;
+    // if (file_exists($logFile)) {
+    //     $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    //     if ($lines !== false) {
+    //         $total = count($lines);
+    //     }
+    // }
+
+    // // Output a friendly message to the browser
+    // echo '<h2>Zugriffsprotokoll</h2>';
+    // echo '<p>Eintrag geschrieben: <code>' . htmlspecialchars(trim($entry), ENT_QUOTES, 'UTF-8') . '</code></p>';
+    // echo '<p>Insgesamt protokollierte Zugriffe: <strong>' . (int)$total . '</strong></p>';
     ?>
 </body>
 </html>
