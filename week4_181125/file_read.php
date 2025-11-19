@@ -44,6 +44,7 @@ while(!feof($fp)){
     for($i = 0; $i < count($row_array); $i++ ){
         echo "$header_array[$i] : $row_array[$i]<br>";
     }
+    echo "<p>----------------------------</p>";
 
 }
 
