@@ -40,7 +40,7 @@ class Rechteck
     $ergebnis=0.0;
     $ergebnis=$this->seiteA*$this->seiteB;
     echo "<p>Ausgabe der Flaeche: ".$ergebnis."</p>";
-	 echo "<p>Die Farbe ist: ".$this->farbe."</p>";
+	  echo "<p>Die Farbe ist: ".$this->farbe."</p>";
   
   }
 
