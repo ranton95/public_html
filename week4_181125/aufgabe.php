@@ -43,19 +43,19 @@ fread() wie bisher.
     // fwrite($log_file, $ip_now );
 
     $count = 0;
-    $target = 100;
-    while(!feof($log_file ) && $count <= $target){
-        if($count != 1 ){
-            fwrite($log_file, $ip_now );
-        }
-        echo "Current Count:" . $count ;
-        fwrite($log_file, $ip_now );
-        $count += 1;    
-        echo "Updated Count:" . $count ;
-        if($count >= 100){
-            exit;
-        }
-    }
+    $target = 69;
+    // while(!feof($log_file ) && $count <= $target){
+    //     if($count != 1 ){
+    //         fwrite($log_file, $ip_now );
+    //     }
+    //     // echo "Current Count:" . $count ;
+    //     fwrite($log_file, $ip_now );
+    //     $count += 1;    
+    //     // echo "Updated Count:" . $count ;
+    //     if($count >= 100){
+    //         exit;
+    //     }
+    // }
     
     fclose($log_file);
 
