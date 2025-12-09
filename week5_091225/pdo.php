@@ -9,7 +9,7 @@
     
     <?php 
     
-    $pdo = new PDO("mysql:host=localhost;dbname=testdb", "root", "");
+    $pdo = new PDO(dsn: "mysql:host=localhost; dbname=person", username: "phpmyadmin", password: "server");
     echo "Verbindung erfolgreich!";
 
     $sql = "CREATE TABLE person (
@@ -23,7 +23,7 @@
             'Peter'
         );
     ";
-    
+
     $pdo->exec($sql);
 
     ?>php

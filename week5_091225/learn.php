@@ -124,19 +124,19 @@
             insert: {
                 title: "INSERT",
                 desc: "Einen Datensatz in die Tabelle einfügen.",
-                code: `<?php\n$sql = "INSERT INTO person VALUES (\n           'value1'\n           'value2';\n           .....\n       );\n";\n$pdo->exec($sql)\n?>`
+                code: `<?php\n $sql = "INSERT INTO person VALUES (\n           'value1'\n           'value2';\n           .....\n       );\n";\n$pdo->exec($sql)\n?>`
             },
 
             select: {
                 title: "SELECT",
                 desc: "Daten aus der Tabelle auslesen.",
-                code: `<?php\n$sql = "SELECT * FROM users";\n$result = $pdo->query($sql);\n\n$valuesArray=$values->fetchAll();\necho"<pre>";\nprint_r($valluesArray);\necho"</pre>"; "<br>";\n}\n?>`
+                code: `<?php\n $sql = "SELECT * FROM users";\n $result = $pdo->query($sql);\n\n$valuesArray=$values->fetchAll();\necho"<pre>";\nprint_r($valluesArray);\necho"</pre>"; "<br>";\n}\n?>`
             },
 
             delete: {
                 title: "DELETE",
                 desc: "Ein Benutzer wird gelöscht (hier: ID = 1).",
-                code: `<?php\n$sql = "DELETE FROM users WHERE id = 1";\n$pdo->exec($sql);\necho "Benutzer mit ID 1 gelöscht!";\n?>`
+                code: `<?php\n $sql = "DELETE FROM users WHERE id = 1";\n $pdo->exec($sql);\necho "Benutzer mit ID 1 gelöscht!";\n?>`
             }
         };
 
