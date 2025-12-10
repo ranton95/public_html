@@ -12,7 +12,7 @@
     $pdo = new PDO(dsn: "mysql:host=localhost; dbname=person", username: "phpmyadmin", password: "server");
     echo "Verbindung erfolgreich!";
 
-    $sql = "CREATE TABLE person (
+    $sql = "CREATE TABLE person(
             id INT AUTO_INCREMENT PRIMARY KEY,
             first_name VARCHAR(50) NOT NULL,
             last_name VARCHAR(100) NOT NULL
