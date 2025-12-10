@@ -13,6 +13,23 @@ require_once "inc/db_connection_function.php";
 
 $dbh = db_connect();
 
+
+$sql = "INSERT INTO user VALUES (
+    NULL,
+    'Micheal',
+    'Staudt',
+    'staudt@wvss-mannheim.de'
+    );";
+
+try{
+    $dbh->exec($sql);
+    echo "<p>Insert succeed!<p>";
+}
+catch(PDOException $e){
+    $errorMessage = $e->getMessage();
+    echo  "<p>Error Message: $errorMessage <br>";
+}
+
 ?>
 
 </body>
