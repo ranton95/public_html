@@ -27,7 +27,9 @@ try{
 }
 catch(PDOException $e){
     $errorMessage = $e->getMessage();
+    $errorCode = $e->getCode();
     echo  "<p>Error Message: $errorMessage <br>";
+    echo  "<p>Error code: $errorCode <br>";
 }
 
 ?>
