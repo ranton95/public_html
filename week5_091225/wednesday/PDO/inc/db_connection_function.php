@@ -18,10 +18,11 @@ function db_connect(){
     
 }
 
-db_connect();
-
-?>
+// db_connect();
 
 // after this go to http://localhost/phpmyadmin/ and login with user: phpmyadmin 
 // password: server and create a database table: E1FI2_2024_Sta as mentioned in the db_connecton_data file
+
+
+?>
 
