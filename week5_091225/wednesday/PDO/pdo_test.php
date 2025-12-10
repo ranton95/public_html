@@ -11,7 +11,7 @@
 
 require_once "inc/db_connection_function.php";
 
-$dbh = db_connect();
+$dbConnection = db_connect();
 
 
 $sql = "INSERT INTO user VALUES (
@@ -22,7 +22,7 @@ $sql = "INSERT INTO user VALUES (
     );";
 
 try{
-    $dbh->exec($sql);
+    $dbConnection->exec($sql);
     echo "<p>Insert succeed!<p>";
 }
 catch(PDOException $e){
@@ -30,6 +30,11 @@ catch(PDOException $e){
     $errorCode = $e->getCode();
     echo  "<p>Error Message: $errorMessage <br>";
     echo  "<p>Error code: $errorCode <br>";
+
+    switch($errorCode){
+        case "23000" : $customErrorMessage = "<p>Email-Address already exists!</p>"; break;
+        default:  $customErrorMessage = "<p>Opps, something went wrong!</p>";
+    }
 }
 
 ?>
