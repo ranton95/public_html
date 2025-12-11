@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klassenliste>
+  <schueler nr="1">
+    <vorname>Noah</vorname>
+    <nachname>Bassmann</nachname>
+  </schueler>
+  <schueler nr="2">
+    <vorname>Dawid</vorname>
+    <nachname>Brueller</nachname>
+  </schueler>
+  <schueler nr="3">
+    <vorname>Maksim</vorname>
+    <nachname>Dessauer</nachname>
+  </schueler>
+  <schueler nr="4">
+    <vorname>Jonas</vorname>
+    <nachname>Gassenhauer</nachname>
+  </schueler>
+  <schueler nr="5">
+    <vorname>Klara</vorname>
+    <nachname>Goettinger</nachname>
+  </schueler>
+  <schueler nr="6">
+    <vorname>Marc</vorname>
+    <nachname>Hausmueller</nachname>
+  </schueler>
+  <schueler nr="7">
+    <vorname>Timo</vorname>
+    <nachname>Heiterberg</nachname>
+  </schueler>
+  <schueler nr="8">
+    <vorname>Johannes</vorname>
+    <nachname>Kachelmann</nachname>
+  </schueler>
+  <schueler nr="9">
+    <vorname>Konstantin</vorname>
+    <nachname>Matern</nachname>
+  </schueler>
+  <schueler nr="10">
+    <vorname>Anna</vorname>
+    <nachname>Manna</nachname>
+  </schueler>
+  <schueler nr="11">
+    <vorname>Kamil</vorname>
+    <nachname>Nether</nachname>
+  </schueler>
+  <schueler nr="12">
+    <vorname>Tobias</vorname>
+    <nachname>Scholz</nachname>
+  </schueler>
+  <schueler nr="13">
+    <vorname>Eric</vorname>
+    <nachname>Schmidt</nachname>
+  </schueler>
+  <schueler nr="14">
+    <vorname>Ferdinand</vorname>
+    <nachname>Tetris</nachname>
+  </schueler>
+  <schueler nr="15">
+    <vorname>Damien</vorname>
+    <nachname>Tapfer</nachname>
+  </schueler>
+  <schueler nr="16">
+    <vorname>Uemit</vorname>
+    <nachname>Toser</nachname>
+  </schueler>
+  <schueler nr="17">
+    <vorname>Sebastian</vorname>
+    <nachname>Wenger</nachname>
+  </schueler>
+  <schueler nr="18">
+    <vorname>Fabio</vorname>
+    <nachname>Wellenwein</nachname>
+  </schueler>
+</klassenliste>

@@ -12,7 +12,20 @@ $xmlDoc->appendChild($xmlRoot);
 $xmlPerson = $xmlDoc->createElement("benutzer"); 
 
 // child node of user: username and password
-$xmlBenutzername = $xmlDoc->createElement("benutzer", "schattke");
+$xmlBenutzername = $xmlDoc->createElement("benutzername", "schattke");
+$xmlPerson->appendChild($xmlBenutzername);
+
+$xmlPasswort = $xmlDoc->createElement("passwort", "12345");
+$xmlPerson->appendChild($xmlPasswort);
+
+$xmlRoot->appendChild($xmlPerson);
+
+
+// 2nd node user
+$xmlPerson = $xmlDoc->createElement("benutzer"); 
+
+// child node of user: username and password
+$xmlBenutzername = $xmlDoc->createElement("benutzername", "Wowo");
 $xmlPerson->appendChild($xmlBenutzername);
 
 $xmlPasswort = $xmlDoc->createElement("passwort", "12345");
