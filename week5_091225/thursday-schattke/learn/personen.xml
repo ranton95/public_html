@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <personen>
   <benutzer>
-    <benutzer>schattke</benutzer>
+    <benutzername>schattke</benutzername>
+    <passwort>12345</passwort>
+  </benutzer>
+  <benutzer>
+    <benutzername>Wowo</benutzername>
     <passwort>12345</passwort>
   </benutzer>
 </personen>
