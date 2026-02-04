@@ -1,0 +1,10 @@
+Ladet euch die Datei „Caesar_Chiffre.php“ runter und fügt sie in
+Visual Studio Code ein
+
+Ergänzt die Funktion „caesar“ so, dass auf den übergebene String
+$text die Caesar-Verschlüsselung angewendet wird und speichert
+das Ergebniss in der Variable $result
+
+Geht hierbei erstmal nur von Großbuchstaben aus
+
+Bonus: Ergänzt den Code um Kleinbuchstaben und andere Zeichen
