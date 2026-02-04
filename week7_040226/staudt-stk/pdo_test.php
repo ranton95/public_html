@@ -21,14 +21,17 @@ $u_email = $_REQUEST['email'];
  
 
 // Insert new record into db    
-$sql = "
-INSERT INTO user VALUES (
-    NULL,  
-    '$u_firstname', 
-    '$u_lastname',
-    '$u_email'     
-    );
-";
+$sql = "INSERT INTO user (firstname, lastname, email) VALUES (:firstname, :lastname, :email)";
+
+try {
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute([
+        ':firstname' => $u_firstname,
+        ':lastname' => $u_lastname,
+        ':email' => $u_email
+    ]);
+    echo "<p>Insert succeeded!</p>";   
+}";
 
 try {
     $dbh->exec($sql);
