@@ -8,9 +8,14 @@ function caesar($text, $shift) {
         $letter = ord($letter);
 
         if($letter >= 65 && $letter <= 90){
-            $result = chr( ($letter - 65 + $shift) %26 +65);
+            $result .= chr( ($letter - 65 + $shift) %26 +65);
         }
-
+        elseif($letter >= 97 && $letter <= 122){
+            $result .= chr( ($letter - 97 + $shift) %26 + 97);
+        }
+        else{
+            $result .= chr($letter);
+        }
     }
     
 /*
@@ -20,7 +25,7 @@ Hier Code ergaenzen
 
 */
     // $result = " ";
-    // $shift = intval($);
+    // $shift = intval($)
 
     // $characters = str_split($text);
 
