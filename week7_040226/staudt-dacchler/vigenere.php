@@ -1,10 +1,12 @@
 <?php
 
 
-// Caesar-Chiffre Funktion
-function caesar($text, $shift) {
+// Vignere Funktion
+function vigenere($text, $code) {
     
     for($i = 0; $i < strlen($text); $i++){
+        $shift = $code[$i % strlen($code) -1];
+        
         $letter = $text[$i];
         $letter = ord($letter);
 
@@ -27,10 +29,10 @@ $text = "";
 $shift = 0;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $text = $_POST["text"] ?? "";
-    $shift = intval($_POST["shift"] ?? 0);
+    $shift = $_POST["shift"];
 
     if (isset($_POST["encrypt"])) {
-        $output = caesar($text, $shift);
+        $output = vigenere($text, $shift);
     }
 
     if (isset($_POST["decrypt"])) {
@@ -43,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Caesar Chiffre</title>
+    <title>vigenere</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,14 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <div class="box">
-    <h2>Caesar Chiffre</h2>
+    <h2>vigenere</h2>
 
     <form method="post">
         <label for="text">Nachricht:</label>
         <textarea name="text" rows="4"><?= htmlspecialchars($text) ?></textarea>
 
         <label>Verschiebung:</label>
-        <input type="number" name="shift" min = 1 max = 26 value="<?= htmlspecialchars($shift) ?>">
+        <input type="number" name="shift" value="<?= htmlspecialchars($shift) ?>">
         <!--<input type="number" name="shift" value="<?= htmlspecialchars($shift) ?>">-->
 
         <button type="submit" name="encrypt">Verschlüsseln</button>
