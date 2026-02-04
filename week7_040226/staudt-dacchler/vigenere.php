@@ -1,12 +1,12 @@
 <?php
 
-
+// To-do: check with other sources
 // Vignere Funktion
 function vigenere($text, $code) {
     
     for($i = 0; $i < strlen($text); $i++){
         $shift = $code[$i % strlen($code) -1];
-        
+
         $letter = $text[$i];
         $letter = ord($letter);
 
