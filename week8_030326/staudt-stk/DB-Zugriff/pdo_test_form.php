@@ -12,10 +12,10 @@
 <form action = "pdo_test.php"> 
 <!-- <form action = "pdo_test_prepared.php"> -->
     <label>Firstname: 
-        <input name = "firstname">
+        <input name = "firstName">
     </label><br>    
     <label>Lastname: 
-        <input name = "lastname">
+        <input name = "lastName">
     </label><br>    
     <label>Email: 
         <input name = "email">

@@ -15,23 +15,21 @@ $dbh = db_connect();
 
 
 // get data from form fields: 
-
-$u_firstname = $dbh->quote($_REQUEST['firstname']);
-$u_lastname = $dbh->quote($_REQUEST['lastname']);
-$u_email = $dbh->quote($_REQUEST['email']);
+$firstName = $_REQUEST['firstName'];
+$lastName = $_REQUEST['lastName'];
+$email = $_REQUEST['email'];
  
 
 // Insert new record into db    
 $sql = "
 INSERT INTO user VALUES (
     NULL,  
-    $u_firstname, 
-    $u_lastname,
-    $u_email     
+    '$firstName', 
+    '$lastName',
+    '$email'     
     );
 ";
 
-echo "<p>Test: $sql</p>";
 
 try {
     $dbh->exec($sql);
@@ -74,7 +72,7 @@ foreach($res as $row) {
      
 
 // result consists of one row and multiple columns
-$sql = "SELECT * FROM user WHERE u_id = 24";
+$sql = "SELECT * FROM user WHERE id = 24";
 $res = $dbh->query($sql)->fetch();
 /*
 echo "<pre>";
@@ -90,11 +88,11 @@ else {
 }
 
 // result represents one cell
-$sql = "SELECT u_firstname FROM user WHERE u_id = 24";
-$firstname = $dbh->query($sql)->fetchColumn();
+// $sql = "SELECT firstName FROM user WHERE id = 24";
+// $firstName = $dbh->query($sql)->fetchColumn();
 
-echo "<p>Searching First Name of User ID 24:<br>";
-echo "First Name of User found: $firstname </p>";
+// echo "<p>Searching First Name of User ID 24:<br>";
+// echo "First Name of User found: $firstName </p>";
 
 
 ?>

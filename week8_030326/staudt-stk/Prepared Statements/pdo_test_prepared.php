@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php
+
 // pdo_test.php
 require_once "inc/db_connection_function.php";
 
@@ -15,27 +16,17 @@ $dbh = db_connect();
 
 
 // get data from form fields: 
-
 $u_firstname = $dbh->quote($_REQUEST['firstname']);
 $u_lastname = $dbh->quote($_REQUEST['lastname']);
 $u_email = $dbh->quote($_REQUEST['email']);
  
 
-// Insert new record into db    
-$sql = "
-INSERT INTO user VALUES (
-    NULL,  
-    $u_firstname, 
-    $u_lastname,
-    $u_email     
-    );
-";
+
 
 echo "<p>Test: $sql</p>";
 
 try {
-    $dbh->exec($sql);
-    echo "<p>Insert succeded!</p>";   
+     
 }
 catch(PDOException $e) {
     $errMsg = $e->getMessage();
