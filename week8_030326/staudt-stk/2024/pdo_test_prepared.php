@@ -42,9 +42,9 @@
 
     // bind with pindParam 
 
-    // $stmt->bindParam(":input_1",$_REQUEST['firstname']);
-    // $stmt->bindParam(":input_2",$_REQUEST['lastname']);
-    // $stmt->bindParam(":input_3",$_REQUEST['email']);
+    $stmt->bindParam(":input_1",$_REQUEST['firstname']);
+    $stmt->bindParam(":input_2",$_REQUEST['lastname']);
+    $stmt->bindParam(":input_3",$_REQUEST['email']);
 
     // bind with associative array
 
