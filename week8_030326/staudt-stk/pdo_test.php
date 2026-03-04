@@ -21,7 +21,7 @@ $u_lastname = $dbh->quote($_REQUEST['lastname']);
 $u_email = $dbh->quote($_REQUEST['email']);
  
 
-// Insert new record into db    
+// Insert new record in to db    
 $sql = "
 INSERT INTO user VALUES (
     NULL,  
