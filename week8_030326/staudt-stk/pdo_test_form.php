@@ -9,6 +9,7 @@
 <h1>PDO Testset</h1>
 <h2>Entry Form</h2>
 <p>Please insert your data and press 'save'</p> 
+
 <!-- <form action = "pdo_test.php">  -->
 <form action = "pdo_test_prepared.php">
     <label>Firstname: 

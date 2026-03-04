@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php
+
 // pdo_test.php
 require_once "inc/db_connection_function.php";
 
@@ -15,25 +16,12 @@ $dbh = db_connect();
 
 
 // get data from form fields: 
-$firstName = $_REQUEST['firstName'];
-$lastName = $_REQUEST['lastName'];
-$email = $_REQUEST['email'];
- 
-
-// Insert new record into db    
-$sql = "
-INSERT INTO user VALUES (
-    NULL,  
-    '$firstName', 
-    '$lastName',
-    '$email'     
-    );
-";
-
+$u_firstname = $dbh->quote($_REQUEST['firstname']);
+$u_lastname = $dbh->quote($_REQUEST['lastname']);
+$u_email = $dbh->quote($_REQUEST['email']);
 
 try {
-    $dbh->exec($sql);
-    echo "<p>Insert succeded!</p>";   
+     
 }
 catch(PDOException $e) {
     $errMsg = $e->getMessage();
@@ -72,7 +60,7 @@ foreach($res as $row) {
      
 
 // result consists of one row and multiple columns
-$sql = "SELECT * FROM user WHERE id = 24";
+$sql = "SELECT * FROM user WHERE u_id = 24";
 $res = $dbh->query($sql)->fetch();
 /*
 echo "<pre>";
@@ -88,11 +76,11 @@ else {
 }
 
 // result represents one cell
-// $sql = "SELECT firstName FROM user WHERE id = 24";
-// $firstName = $dbh->query($sql)->fetchColumn();
+$sql = "SELECT u_firstname FROM user WHERE u_id = 24";
+$firstname = $dbh->query($sql)->fetchColumn();
 
-// echo "<p>Searching First Name of User ID 24:<br>";
-// echo "First Name of User found: $firstName </p>";
+echo "<p>Searching First Name of User ID 24:<br>";
+echo "First Name of User found: $firstname </p>";
 
 
 ?>
