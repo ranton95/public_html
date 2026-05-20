@@ -4,7 +4,7 @@ const feld = document.getElementById("name");
 
 feld.addEventListener("input", function(){
 
-    if(feld.ariaValueMax.length >4){
+    if(feld.value.length > 4){
         feld.style.backgroundColor="green";
     }
     else{
