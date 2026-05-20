@@ -35,7 +35,8 @@ function getJSON(){
     //Antwort from server abwartern
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
-            
+            let result = JSON.parse(xhr.responseText);
+            console.log(result);
         }
     }
 
