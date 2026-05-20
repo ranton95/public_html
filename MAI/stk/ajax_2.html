@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Mitarbeiter gehalt</h1>
+    <select name="selection" id="selection">
+        <option>Please select</option>
+        <option value="0">Mertens</option>
+        <option value="1">John</option>
+        <option value="2">Schulz</option>
+        <option value="3">Peter</option>
+      </select> 
+  
+      <div id="output"></div>
+<script>
+
+// AJAX
+
+// 1. Instanz von the xml http request
+let xhr = new XMLHttpRequest();
+
+// 2. Event listener init
+window.addEventListener("load", function(){
+    document.getElementById("selection").addEventListener("change", auswahl);
+});
+
+
+// we only want to get the data from the json
+
+function auswahl(){
+    // 3. HTTP Anfrage vorbereiten
+    xhr.open("get", "gehalt.json");
+
+    // 4. Absenden der Anfrage 
+    xhr.send();
+
+    //Antwort from server abwartern
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+
+            let selection = document.getElementById("selection").value;
+            console.log(selection);
+
+            let result = JSON.parse(xhr.responseText);
+            console.log(result);
+
+            //Output only a single result
+            document.getElementById("output").innerHTML="Name: "+result[selection].Name+", Gehalt:"+ result[selection].Gehalt+" EUR";
+            
+        }
+        
+        // //Output the response
+        // document.getElementById("output").innerHTML="<pre>"+xhr.responseText+"</pre>";
+
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+</html>
