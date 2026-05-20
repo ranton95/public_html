@@ -38,6 +38,8 @@ function getJSON(){
             let result = JSON.parse(xhr.responseText);
             console.log(result);
         }
+
+        document.getElementById("output").innerHTML="<pre>"+xhr.responseText+"</pre>";
     }
 
 }
