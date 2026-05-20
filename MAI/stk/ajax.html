@@ -37,9 +37,17 @@ function getJSON(){
         if(xhr.readyState == 4 && xhr.status == 200){
             let result = JSON.parse(xhr.responseText);
             console.log(result);
-        }
 
-        document.getElementById("output").innerHTML="<pre>"+xhr.responseText+"</pre>";
+
+            //Output only a single result
+            document.getElementById("output").innerHTML=result[2].Gehalt;
+            
+        }
+        
+        // //Output the response
+        // document.getElementById("output").innerHTML="<pre>"+xhr.responseText+"</pre>";
+
+
     }
 
 }
