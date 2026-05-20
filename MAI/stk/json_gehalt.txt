@@ -1,0 +1,4 @@
+[{"Name":"Mertens","Gehalt":5600.89},{"Name":"Müller","Gehalt":6644.89},
+{"Name":"Meier","Gehalt":4000.00}, {"Name": "Schulz", "Gehalt":3800},
+{"Name": "Weigold" , "Gehalt":3500.95}]
+

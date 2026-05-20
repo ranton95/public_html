@@ -1,0 +1,18 @@
+[
+    {
+        "Name" : "Mertens",
+        "Gehalt" : 5694.34
+    },
+    {
+        "Name" : "Müller",
+        "Gehalt" : 4324.32
+    },
+    {
+        "Name" : "Meier",
+        "Gehalt" : 4444.55
+    },
+    {
+        "Name" : "Schulz",
+        "Gehalt" : 7777.77
+    }
+]

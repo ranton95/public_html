@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="myButton">GET JSON </button>
+    <div id="output"></div>
+
+<script>
+
+// AJAX
+
+// 1. Instanz von the xml http request
+let xhr = new XMLHttpRequest();
+
+// we only want to get the data from the json
+
+// 2. Event listener init
+window.addEventListener("load", function(){
+    document.getElementById("myButton").addEventListener("click", getJSON);
+});
+
+
+function getJSON(){
+    // 3. HTTP Anfrage 
+    xhr.open("get", "gehalt.json");
+
+}
+
+
+</script>
+
+
+</body>
+</html>
