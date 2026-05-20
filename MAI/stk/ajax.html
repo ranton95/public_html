@@ -26,8 +26,18 @@ window.addEventListener("load", function(){
 
 
 function getJSON(){
-    // 3. HTTP Anfrage 
+    // 3. HTTP Anfrage vorbereiten
     xhr.open("get", "gehalt.json");
+
+    // 4. Absenden der Anfrage 
+    xhr.send();
+
+    //Antwort from server abwartern
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            
+        }
+    }
 
 }
 
