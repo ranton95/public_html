@@ -12,8 +12,16 @@
       <div id="output"></div>
 <script>
     let numbers = [1,2,3];
+    let age = [20,30,40];
 
-    numbers.forEach( function(x){ console.log(x);} );
+    //numbers.forEach( function(x){ console.log(x);} );
+    // Arrow-Schreibweise: Parameter => {Funktion}
+    numbers.forEach( (number, index)=>{
+        const age2 = age[index];
+        console.log(number, age2);
+
+    }); 
+
 
 </script>
 
