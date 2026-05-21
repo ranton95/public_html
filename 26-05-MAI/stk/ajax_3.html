@@ -28,39 +28,38 @@ window.addEventListener("load", function(){
 });
 
 function auswahl(){
+    
+    let selectedIndex = document.getElementById("selection").value;
+
+    // Falls "Please select" gewählt wurde, breche ab
+    if(selectedIndex === "Please select") {
+        document.getElementById("output").innerHTML = "";
+        return;
+    }
 
     xhr.open("get", "gehalt.json");
     xhr.send();
 
-    //Antwort from server abwartern
-    xhr.onreadystatechange = ()=>{
+    xhr.onreadystatechange = () => {
         if(xhr.readyState == 4 && xhr.status == 200){
-
-            let selection = document.getElementById("selection").value;
             let result = JSON.parse(xhr.responseText);
+            let outputDiv = document.getElementById("output");
+            
+            // Leere den alten Inhalt
+            outputDiv.innerHTML = ""; 
 
-            result.forEach( (element,index) => {
-                console.log('The element index:', index);
-                console.log('The element name:', element.Name);
-                console.log('The element gehalt:', element.Gehalt);
-                
-                console.log('Selection text content before:', selection.textContent );
-                selection.textContent = element.Name;
-                console.log('Selection text content before:', selection.textContent );
-
-
-                // selection.value = element.Gehalt;
-
-                // select.appendChild(ele);
-
+            result.forEach((element, index) => {
+                // Prüfe, ob der Array-Index mit der Auswahl übereinstimmt
+                if(index == selectedIndex) {
+                    // Erstelle den Anzeige-Text
+                    let info = `Mitarbeiter: ${element.Name} <br> Gehalt: ${element.Gehalt}`;
+                    
+                    // Schreibe den Text in das Output-Div
+                    outputDiv.innerHTML = info;
+                }
             });
         }
-
-        //Output the response
-        document.getElementById("output").innerHTML="<pre>"+xhr.responseText[1]+"</pre>";    
-        
     }
-
 }
 
 
