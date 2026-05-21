@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Mitarbeiter gehalt</h1>
+    <select name="selection" id="selection">
+        <option>Please select</option>
+        <option value="0">Mertens</option>
+        <option value="1">John</option>
+        <option value="2">Schulz</option>
+        <option value="3">Peter</option>
+      </select> 
+  
+      <div id="output"></div>
+<script>
+
+// AJAX
+
+let xhr = new XMLHttpRequest();
+
+window.addEventListener("load", function(){
+    document.getElementById("selection").addEventListener("change", auswahl);
+});
+
+function auswahl(){
+
+    xhr.open("get", "gehalt.json");
+    xhr.send();
+
+    //Antwort from server abwartern
+    xhr.onreadystatechange = ()=>{
+        if(xhr.readyState == 4 && xhr.status == 200){
+
+            let selection = document.getElementById("selection").value;
+            let result = JSON.parse(xhr.responseText);
+
+            result.forEach( (element,index) => {
+                console.log('The element index:', index);
+                console.log('The element name:', element.Name);
+                console.log('The element gehalt:', element.Gehalt);
+                
+                console.log('Selection text content before:', selection.textContent );
+                selection.textContent = element.Name;
+                console.log('Selection text content after:', selection.textContent );
+
+
+                // selection.value = element.Gehalt;
+
+                // select.appendChild(ele);
+
+            });
+        }
+
+        //Output the response
+        document.getElementById("output").innerHTML="<pre>"+xhr.responseText[1]+"</pre>";    
+        
+    }
+
+}
+
+
+</script>
+
+
+</body>
+</html>
