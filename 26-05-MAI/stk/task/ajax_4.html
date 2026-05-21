@@ -7,13 +7,14 @@
 </head>
 <body>
 
-    <h1>Mitarbeiter gehalt</h1>
+    <h1>Qualifikation</h1>
     <select name="selection" id="selection">
         <option>Please select</option>
-        <option value="0">Mertens</option>
-        <option value="1">John</option>
-        <option value="2">Schulz</option>
-        <option value="3">Peter</option>
+        <option value="0">Java</option>
+        <option value="1">HTML</option>
+        <option value="2">CSS</option>
+        <option value="3">RedisDB</option>
+        <option value="3">MySQL</option>
       </select> 
   
       <div id="output"></div>
@@ -29,7 +30,8 @@ window.addEventListener("load", function(){
 
 function auswahl(){
 
-    xhr.open("get", "gehalt.json");
+
+    xhr.open("get", "get_data.php", true);
     xhr.send();
 
     //Antwort from server abwartern
@@ -46,7 +48,7 @@ function auswahl(){
                 
                 console.log('Selection text content before:', selection.textContent );
                 selection.textContent = element.Name;
-                console.log('Selection text content before:', selection.textContent );
+                console.log('Selection text content after:', selection.textContent );
 
 
                 // selection.value = element.Gehalt;
