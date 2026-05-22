@@ -10,11 +10,11 @@
     <h1>Qualifikation</h1>
     <select name="selection" id="selection">
         <option>Please select</option>
-        <option value="0">Java</option>
-        <option value="1">HTML</option>
-        <option value="2">CSS</option>
-        <option value="3">RedisDB</option>
-        <option value="3">MySQL</option>
+        <option value="Java">Java</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="RedisDB">RedisDB</option>
+        <option value="MySQL">MySQL</option>
       </select> 
   
       <div id="output"></div>
@@ -39,7 +39,7 @@ function auswahl(){
     xhr.open("get", "get_data.php?qualification=" + encodeURIComponent(qualification), true);
     xhr.send();
 
-    //Antwort from server abwartern
+    //3. Antwort from server abwartern
     xhr.onreadystatechange = ()=>{
         if(xhr.readyState == 4 && xhr.status == 200){
 
