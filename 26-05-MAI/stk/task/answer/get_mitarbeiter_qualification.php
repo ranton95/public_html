@@ -6,8 +6,8 @@ $qualification = $_GET['qualification'] ?? '';
 
 $host = 'localhost';
 $dbname = 'json';
-$username = 'root';
-$password = '';
+$username = 'phpmyadmin';
+$password = 'server';
 
 try {
     $connection = new PDO(

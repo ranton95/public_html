@@ -4,8 +4,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 $host = 'localhost';
 $dbname = 'json';
-$username = 'root';
-$password = '';
+$username = 'phpmyadmin';
+$password = 'server';
 
 try {
     $connection = new PDO(
