@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mitarbeiter Qualifikation</title>
+</head>
+<body>
+
+<label for="qualification">Qualifikation:</label>
+
+<select id="qualification">
+    <option value="">Bitte auswählen</option>
+</select>
+
+<br><br>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Qualifikation</th>
+        </tr>
+    </thead>
+    <tbody id="resultTable"></tbody>
+</table>
+
+<script>
+window.onload = function () {
+    loadQualifications();
+};
+
+function loadQualifications() {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "get_qualifications.php", true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let qualifications = JSON.parse(xhr.responseText);
+            let dropdown = document.getElementById("qualification");
+
+            qualifications.forEach(function (item) {
+                let option = document.createElement("option");
+                option.value = item.qualification;
+                option.textContent = item.qualification;
+                dropdown.appendChild(option);
+            });
+        }
+    };
+
+    xhr.send();
+}
+
+document.getElementById("qualification").addEventListener("change", function () {
+    let qualification = this.value;
+
+    if (qualification === "") {
+        document.getElementById("resultTable").innerHTML = "";
+        return;
+    }
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open(
+        "GET",
+        "get_data.php?qualification=" + encodeURIComponent(qualification),
+        true
+    );
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let employees = JSON.parse(xhr.responseText);
+            let output = "";
+
+            employees.forEach(function (employee) {
+                output += "<tr>";
+                output += "<td>" + employee.name + "</td>";
+                output += "<td>" + employee.qualification + "</td>";
+                output += "</tr>";
+            });
+
+            document.getElementById("resultTable").innerHTML = output;
+        }
+    };
+
+    xhr.send();
+});
+</script>
+
+</body>
+</html>
