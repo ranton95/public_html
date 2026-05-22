@@ -3,8 +3,8 @@
 header('Content-Type: application/json');
 
 $host = 'localhost'; 
-$username = 'root'; // Your MySQL username
-$password = '';     // Your MySQL password
+$username = 'phpmyadmin'; // Your MySQL username
+$password = 'server';    
 $dbname = 'json'; 
 
 try {
@@ -14,12 +14,21 @@ try {
 
     $qualifikation = $_GET['qualifikation'];
 
-    $sql = "";
-    $stmt = $pdo->prepare($ql);
-    $stmt->bindParam(":qualifikation", $qualifikation);
-    $stmt->execute();
+
+
+    $sql = "SELECT mitarbeiter.Name as name qualifikation.Qualifikation as qualification 
+            FROM mitarbeiter
+            INNER JOIN mitarbeiter_hat_qualifikation
+            ON mitarbeiter.idMitarbeiter= mitarbeiter_hat_qualifikation.Mitarbeiter_idMitarbeiter
+            INNER JOIN qualifikation
+            ON qualifikation.idQualifikation = mitarbeiter_hat_qualifikation.Qualifikation_idQualifikation
+            WHERE qualifikation.Qualifikation = :qualifikation";
     
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $statement = $pdo->prepare($sql);                  
+    $statement->bindParam(":qualifikation", $qualifikation);
+    $statement->execute();
+                                                      
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($results);
 
