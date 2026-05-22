@@ -1,0 +1,13 @@
+SQL-Injection-Angriff (in letztes Feld eingeben) 
+
+');DELETE FROM user WHERE (u_email LIKE '%
+
+
+
+
+INSERT INTO user VALUES (
+    NULL,  
+    '$u_firstname', 
+    '$u_lastname',
+    '');
+    DELETE FROM user WHERE (u_email LIKE '%');
