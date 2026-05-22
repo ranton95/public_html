@@ -16,10 +16,11 @@ try {
 
 
 
-    $sql = "SELECT mitarbeiter.Name as name qualifikation.Qualifikation as qualification 
+    $sql = "SELECT mitarbeiter.Name as name,
+                   qualifikation.Qualifikation as qualification 
             FROM mitarbeiter
             INNER JOIN mitarbeiter_hat_qualifikation
-            ON mitarbeiter.idMitarbeiter= mitarbeiter_hat_qualifikation.Mitarbeiter_idMitarbeiter
+            ON mitarbeiter.idMitarbeiter = mitarbeiter_hat_qualifikation.Mitarbeiter_idMitarbeiter
             INNER JOIN qualifikation
             ON qualifikation.idQualifikation = mitarbeiter_hat_qualifikation.Qualifikation_idQualifikation
             WHERE qualifikation.Qualifikation = :qualifikation";
