@@ -2,7 +2,7 @@
 // Set headers to allow JSON output
 header('Content-Type: application/json');
 
-$qualifikation = $_GET['qualifikation'] ?? " ";
+$qualifikation = $_GET['qualifikation'] ?? "";
 
 $host = 'localhost'; 
 $username = 'phpmyadmin'; // Your MySQL username
