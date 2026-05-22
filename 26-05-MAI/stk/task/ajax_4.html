@@ -20,9 +20,6 @@
       <div id="output"></div>
 <script>
 
-// AJAX
-
-let xhr = new XMLHttpRequest();
 
 window.addEventListener("load", function(){
     document.getElementById("selection").addEventListener("change", auswahl);
@@ -30,8 +27,16 @@ window.addEventListener("load", function(){
 
 function auswahl(){
 
+    //1.get the qualification from the dropdown
+    const qualification = this.value;
+    if( qualification === ""){
+        document.getElementById("output").innerHTML = "";
+        return;
+    }
 
-    xhr.open("get", "get_data.php", true);
+    //2. pass the qualification to the backend
+    let xhr = new XMLHttpRequest();
+    xhr.open("get", "get_data.php?qualification=" + encodeURIComponent(qualification), true);
     xhr.send();
 
     //Antwort from server abwartern
