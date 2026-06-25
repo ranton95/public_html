@@ -15,10 +15,10 @@
 		<legend>Farbcode berechnen</legend>
 
 		<form action="Zeige_E_Reihe.php" method="POST">
-			<label> Ring 1: <script>document.write(generateList('R1'))</script></label>
-			<label> Ring 2: <script>document.write(generateList('R2'))</script></label>
-			<label> Ring 3: <script>document.write(generateList('R3'))</script></label>
-
+			<label> Ring 1: <script>document.write(generateList('R1'));</script></label>
+			<label> Ring 2: <script>document.write(generateList('R2'));</script></label>
+			<label> Ring 3: <script>document.write(generateList('R3'));</script></label>
+			<input type="submit" name="send" value="Berechne">
 		</form>
 		
 
@@ -35,6 +35,18 @@
 	
 	<fieldset>
 		<legend>Wert nach E-Reihe ermitteln und min max via MQTT empfangen</legend>
+
+		<div class="">
+			<label><input type="radio" name="E" value="6" checked> E6 (20%)</label>
+			<label><input type="radio" name="E" value="12"> E12 (10%)</label>
+			<label><input type="radio" name="E" value="24"> E24 (5%)</label>
+		</div>
+
+		<div class="">
+			<label>Wiederstand: <input type="text" name="R" id="Rwert"> </label>
+			<br>
+			ausgewählter Wert in &Omega; = <span id="Ausgabe"></span>
+		</div>
 	
 
 	</fieldset>

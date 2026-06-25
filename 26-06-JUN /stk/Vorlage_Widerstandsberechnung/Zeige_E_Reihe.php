@@ -9,7 +9,25 @@
   </head>
   <body>
 	<h1> Darstellung der E-Reihe</h1>
-	
+  
+  <?php
+  $r1 = $_POST['R1'];
+  $r2 = $_POST['R2'];
+  $r3 = $_POST['R3'];
+
+  $ergebnis = ($r1*10+$r2)*pow(10,$r3);
+
+  echo"<h2>Der Wert beträgt {$ergebnis} Ohm. </h2>";
+
+  ?>
+  <div>
+    <img src="FarbCode.png" alt="Farbcodedarstellung" width=50%>
+  </div>
+
+  <div>
+    <a href="start.html">Zurück</a>
+  </div>
+  
 	
   </body>
 </html>
