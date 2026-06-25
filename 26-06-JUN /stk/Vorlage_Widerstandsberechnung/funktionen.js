@@ -1,22 +1,36 @@
 
 function generateList(name) {
-	let list;
-	list="<select name= '"+name+"'>";
-	list=list+"<option value='1'>schwarz</option>";
-	list=list+"<option value='1'>braun</option>";
-	list=list+"<option value='2'>rot</option>";
-	list=list+"<option value='3'>orange</option>";
-	list=list+"<option value='4'>gelb</option>";
-	list=list+"<option value='5'>gruen</option>";
-	list=list+"<option value='6'>blau</option>";
-	list=list+"<option value='7'>lila</option>";
-	list=list+"<option value='8'>grau</option>";
-	list=list+"<option value='9'>weiss</option>";
-
+	const colors = [
+		{v: '0', label: 'schwarz'},
+		{v: '1', label: 'braun'},
+		{v: '2', label: 'rot'},
+		{v: '3', label: 'orange'},
+		{v: '4', label: 'gelb'},
+		{v: '5', label: 'gruen'},
+		{v: '6', label: 'blau'},
+		{v: '7', label: 'lila'},
+		{v: '8', label: 'grau'},
+		{v: '9', label: 'weiss'}
+	];
+	let list = "<select name='" + name + "'>";
+	for (let i = 0; i < colors.length; i++) {
+		list += "<option value='" + colors[i].v + "'>" + colors[i].label + "</option>";
+	}
+	list += "</select>";
+	return list;
 }
 
 
 //EventListener für das abhören der Formularelemente
+window.addEventListener("load", function(){
+
+	//Abhören des Inputfeldes
+	document.getElementById("Rwert").addEventListener("input", function(){
+		ajaxSendenundEmpfangen(document.querySelector("input[name=R]").value, document.querySelector("input[name=E]:checked").value )
+	});
+}
+
+);
 
 function ajaxSendenundEmpfangen(R,E) 
 {
