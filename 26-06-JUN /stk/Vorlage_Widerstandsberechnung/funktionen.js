@@ -1,10 +1,22 @@
 
+function generateList(name) {
+	let list;
+	list="<select name= '"+name+"'>";
+	list=list+"<option value='1'>schwarz</option>";
+	list=list+"<option value='1'>braun</option>";
+	list=list+"<option value='2'>rot</option>";
+	list=list+"<option value='3'>orange</option>";
+	list=list+"<option value='4'>gelb</option>";
+	list=list+"<option value='5'>gruen</option>";
+	list=list+"<option value='6'>blau</option>";
+	list=list+"<option value='7'>lila</option>";
+	list=list+"<option value='8'>grau</option>";
+	list=list+"<option value='9'>weiss</option>";
+
+}
+
 
 //EventListener für das abhören der Formularelemente
-
-
-
-
 
 function ajaxSendenundEmpfangen(R,E) 
 {

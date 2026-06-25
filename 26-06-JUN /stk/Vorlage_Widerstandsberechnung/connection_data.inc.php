@@ -1,7 +1,7 @@
 <?php
 	$host = 'localhost';
 	$user = 'root';
-	$pw = '';
-	$db = '';
+	$pw = 'phpmyadmin';
+	$db = 'server';
 
 ?>
