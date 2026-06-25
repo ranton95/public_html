@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="myButton"> Get Data!</button>
+    <div id="output"></div>
+</body>
+
+<script>
+
+    window.onload = function () {
+        //keyfunctions to call
+    };
+
+
+    function loadQualifications() {
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", "get_mitarbeiter_qualification.php", true);
+
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //key logic to play with the data recieved from the backend
+                
+                //parse the response recieved from the backend with JSON.parse
+            };
+
+
+        };
+
+        xhttp.send(); 
+
+    };
+
+
+</script>
+
+</html>
