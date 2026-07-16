@@ -28,14 +28,14 @@ window.addEventListener("load", function(){
 	document.getElementById("Rwert").addEventListener("input", function(){
 		ajaxSendenundEmpfangen(document.querySelector("input[name=R]").value, document.querySelector("input[name=E]:checked").value )
 	});
-}
-
-);
+});
 
 function ajaxSendenundEmpfangen(R,E) 
 {
-
-	
+	let xhr = new XMLHttpRequest();
+	let widString = '{"R":'+R+', "E":'+E+'}'; //{"R":2, "E":6}
+	xhr.open("GET", "call_From_AJAX.php?Daten:"+widString, true);
+	xhr.send();	
 	
 }
 
