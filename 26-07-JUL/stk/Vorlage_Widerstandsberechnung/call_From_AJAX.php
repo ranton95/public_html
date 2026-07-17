@@ -24,8 +24,15 @@ $Toleranz =   array(6=>0.2,12=>0.1,24=>0.05);
 /* ---------------------------------------------------------------- */
 /* AJAX Response: Daten als JSON-Objekt*/
 
-$berechWert = getClosest(($R/pow(10,floor(log10($R)))), $Reihen[$E])*pow(10,floor(log10($R)));
+if(isset($_GET["Daten"])){
 
+	$datenObj = json_decode($_GET["Daten"]); //Umwandling des JSON String in the JSON-Objekt
+	$R = $datenObj->R;
+	$E = $datenObj->E;
+	$berechWert = getClosest(($R/pow(10,floor(log10($R)))), $Reihen[$E])*pow(10,floor(log10($R)));
+	$response = ["Wert"=>floor($berechneWert)];
+	echo json_encode($response); // Rückgabe als {"Wert": XXX}
+}
 
 
 

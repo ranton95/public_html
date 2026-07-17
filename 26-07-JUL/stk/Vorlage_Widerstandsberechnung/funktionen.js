@@ -36,6 +36,15 @@ function ajaxSendenundEmpfangen(R,E)
 	let widString = '{"R":'+R+', "E":'+E+'}'; //{"R":2, "E":6}
 	xhr.open("GET", "call_From_AJAX.php?Daten:"+widString, true);
 	xhr.send();	
+
+	//Antwort der Anfrage
+	xhr.onreadystatechange= function(){
+		if(this.readyState==4 && this.status==200){
+			console.log(this.response);
+			let ansJSON = parse($this.responseText);
+			document.getElementById("Ausgabe").innerHTML = ansJSON.Wert;
+		}
+	};
 	
 }
 
