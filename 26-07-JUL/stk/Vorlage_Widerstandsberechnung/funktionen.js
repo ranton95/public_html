@@ -28,6 +28,9 @@ window.addEventListener("load", function(){
 	document.getElementById("Rwert").addEventListener("input", function(){
 		ajaxSendenundEmpfangen(document.querySelector("input[name=R]").value, document.querySelector("input[name=E]:checked").value )
 	});
+
+	//Abhören des connects button
+	document.get
 });
 
 function ajaxSendenundEmpfangen(R,E) 
@@ -67,7 +70,10 @@ function tryConnect() {
 	}
 	
 function onConnect() {
-	
+	writeLog("New connection made...")
+	let mqttTopic= "wvss/e2fi1";
+	client.subscribe(mqttTopic);
+	writeLog("Subscribing to topic: " +mqttTopic+"...");
 
 }	
 	
@@ -76,5 +82,7 @@ function onMessageArrived(message) {
 }
 
 function writeLog(newtext){
-	
+	let text = document.getElementById("alltext").value;
+	text = newtext+"\n"+text;
+	document.getElementById("alltext").value = text;
 }
