@@ -2,8 +2,8 @@
 
 class Person
 {
-    private string $nachname;
-    private string $vorname;
+    protected string $nachname;
+    protected string $vorname;
 
     public function __construct(string $nn, string $vn)
     {
@@ -14,17 +14,14 @@ class Person
 
 class Lehrer extends Person
 {
-    private string $email;
-
-    public function __construct(string $nn, string $vn, string $em)
+    public function __construct(string $nn, string $vn)
     {
         parent::__construct($nn, $vn); // Aufruf des Elternkonstruktors
-        $this->email = $em;
     }
 
     public function kennung()
     {
-        echo "{$this->vorname}, {$this->nachname} ist ein Lehrer";
+        echo "{$this->vorname} {$this->nachname} ist ein Lehrer";
     }
 }
 
@@ -34,12 +31,11 @@ class Schueler extends Person
     public function __construct(string $nn, string $vn)
     {
         parent::__construct($nn, $vn); // Aufruf des Elternkonstruktors
-        $this->email = $em;
     }
 
     public function kennung()
     {
-        echo "{$this->vorname}, {$this->nachname} ist ein Schueler";
+        echo "<p>{$this->vorname}, {$this->nachname} ist ein Schueler</p>";
     }
 }
 
@@ -47,7 +43,10 @@ class Schueler extends Person
 $angie = new Lehrer("Merkel", "Angie");
 $freddy = new Schueler("Merz", "Freddy");
 
+$pl = new Person();
+
 $angie->kennung();
 $freddy->kennung();
+
 
 ?>
