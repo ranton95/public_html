@@ -43,7 +43,7 @@ class Schueler extends Person
 $angie = new Lehrer("Merkel", "Angie");
 $freddy = new Schueler("Merz", "Freddy");
 
-$pl = new Person();
+$pl = new Person("Mustermann", "Max"); //empty person init does not work as the constructor is not with optional attributes
 
 $angie->kennung();
 $freddy->kennung();
