@@ -21,6 +21,33 @@ class Lehrer extends Person
         parent::__construct($nn, $vn); // Aufruf des Elternkonstruktors
         $this->email = $em;
     }
+
+    public function kennung()
+    {
+        echo "{$this->vorname}, {$this->nachname} ist ein Lehrer";
+    }
 }
+
+class Schueler extends Person
+{
+
+    public function __construct(string $nn, string $vn)
+    {
+        parent::__construct($nn, $vn); // Aufruf des Elternkonstruktors
+        $this->email = $em;
+    }
+
+    public function kennung()
+    {
+        echo "{$this->vorname}, {$this->nachname} ist ein Schueler";
+    }
+}
+
+//object anzeigen
+$angie = new Lehrer("Merkel", "Angie");
+$freddy = new Schueler("Merz", "Freddy");
+
+$angie->kennung();
+$freddy->kennung();
 
 ?>
