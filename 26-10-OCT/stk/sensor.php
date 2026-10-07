@@ -90,13 +90,9 @@ class Aktoren extends Artikel
 }
 
 //object anzeigen
-$angie = new Lehrer("Merkel", "Angie");
-$freddy = new Schueler("Merz", "Freddy");
+$artikel = new Artikel(12345, "PT100", 50);
+$sensoren = new Sensoren("Digital", 1);
 
-$pl = new Person("Mustermann", "Max"); //empty person init does not work as the constructor is not with optional attributes
-
-$angie->kennung();
-$freddy->kennung();
-
+$sensoren->getDaten();
 
 ?>
