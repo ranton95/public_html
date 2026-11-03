@@ -15,14 +15,22 @@ body {
 
 /* M o b i l e  F i r s t  */
 
-header, main, aside, footer {
+header, nav, main, aside, footer {
     min-height: 80px;
     margin-bottom: 20px;
   
 }
 
+nav {
+    background-color: orange;
+}
+
 header {
     background-color: blue; 
+}
+
+nav ul{
+    list-style: none;
 }
 
 div#logo img {
