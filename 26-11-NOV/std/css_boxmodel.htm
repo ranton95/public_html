@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Boxmodel</title>
+    <style>
+        body {
+            /* reset */
+            padding: 0;
+            margin: 0;
+        }
+        div {
+          
+            border: 2px solid black;
+            margin: 20px; /* Aussenabstand */
+            padding: 20px; /* Innenabstand */
+            width: 300px;
+            /* background-color: peachpuff;  */       
+            box-sizing: border-box; /* Default: content-box */
+            outline: 5px solid tomato;  
+            border-radius: 4px;         
+        }
+
+        div.gradient {
+            background: #FFFFFF;
+            background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(74, 157, 212, 1) 100%);
+        }
+
+        div.special {
+            box-shadow: -6px 6px 5px 0px rgba(0,0,0,0.46);
+            outline: none; 
+            border-radius: 0;  
+            background-image: url(logo.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 10%;
+            width: 500px;
+            height: 500px;
+        } 
+
+         div.wallpaper {
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+            margin:0;
+            width: 100%;
+            height: 1500px;
+            background-image: url(wp.jpg);
+         }
+    /* file: css_boxmodel.htm */    
+    </style>
+</head>
+<body>
+    <!-- <div class = "special">Lorem ipsum dol ipsa, volua modi adipisci omnis sequi qui asso consequuntur id?</div> -->
+    <!-- <div class = "gradient">Lorem ipsum dolor ate ofpisci om voluptates. Deleniti magni consequuntur id?</div> -->
+    <!-- <div>Lorem ipsum dolor ate ofpisci om voluptates. Deleniti magni pisci om voluptates. pisci om voluptates. Deleniti magn Deleniti magnconsequuntur id?</div>      -->
+    <div class = "wallpaper">Lorem ipsum dolor ate ofpisci om voluptates. Deleniti magni consequuntur id?</div> 
+</body>
+</html>

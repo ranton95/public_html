@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Selektoren</title>
+    <style>
+        /* CSS-Kommentar */
+
+        h1 { /* Element-Selektor */
+            text-decoration: underline; /* kaskadiert (fügt hinzu) */
+            color: green; /* überschrieben  */
+        }
+        /* h1 ist höher "spezifiert" (genauer) als * und setzt sich bei gleichem Attribut durch */ 
+    
+        * {  /* Universal-Selektor */
+            color: red; 
+            font-weight: bold; 
+            font-family: sans-serif;
+        } 
+        
+        .myClass {  /* Class-Selektor */
+            background-color: peachpuff;
+        }
+
+        #secondlistitem {
+            border: 2px dotted maroon;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>CSS-Selektoren</h1>
+    <p class = "myClass">Diese Beispieldatei demonstriert wichtige CSS-Selektoren</p>
+    <p class = "myClass">sowie deren Priorisierung</p>
+    <ul>
+        <li id = "firstlistitem">Punkt 1</li>
+        <li id = "secondlistitem">Punkt 2</li>
+        <li id = "thirdlistitem">Punkt 3</li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* Stylesheet */
+
+
+body {   
+    margin: 0;
+    background-color: silver;
+}
+
+#page {
+    margin: 0 auto; /* Page-Wrapper zentrieren */
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+}
+
+/* M o b i l e  F i r s t  */
+
+header, main, aside, footer {
+    min-height: 80px;
+    margin-bottom: 20px;
+  
+}
+
+header {
+    background-color: blue; 
+}
+
+div#logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+main {
+    overflow: hidden;   
+    background-color: darkred;    
+}
+
+.col {
+    background-color: tomato;
+    min-height: 120px;
+    margin: 20px;
+}
+
+aside {
+    background-color: darkviolet;    
+}
+
+footer {
+    background-color: green;
+    margin-bottom: 0;
+
+}
+
