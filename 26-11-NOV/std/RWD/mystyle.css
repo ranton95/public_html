@@ -1,10 +1,10 @@
 /* Stylesheet */
-
-html{
+html {
     font-family: sans-serif;
-    font-size: 16px;
-
+    font-size: 16px; /* rem 16 px (Root Font Size) */
 }
+
+
 body {   
     margin: 0;
     background-color: silver;
@@ -15,35 +15,36 @@ body {
     background-color: white;
     padding: 20px;
     width: 90%;
+    max-width: 1200px;
+    min-width: 200px;
 }
 
 /* M o b i l e  F i r s t  */
 
 header, nav, main, aside, footer {
     min-height: 80px;
-    margin-bottom: 20px;
-  
-}
-
-nav {
-    background-color: orange;
+    margin-bottom: 20px;  
 }
 
 header {
     background-color: blue; 
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+/* Header-Bereich mit Logo etc. */
+div#company, div#slogan {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 0.4rem;
+} 
+
+div#company {
+    font-size: 1.8rem;
 }
 
-nav ul a{
-    text-decoration: none;
-    color: aliceblue;
+div#slogan {
     font-size: 1.2rem;
-    padding: 1rem;
 }
 
 div#logo img {
@@ -51,6 +52,12 @@ div#logo img {
     margin: 0 auto;
 }
 
+/* Ende Header-Bereich mit Logo etc. */
+
+
+nav {
+    background-color: darkorange; 
+}
 
 main {
     overflow: hidden;   
@@ -70,6 +77,59 @@ aside {
 footer {
     background-color: green;
     margin-bottom: 0;
-
 }
 
+
+/* Ergänzung um nav 1-stufig */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}  
+
+nav ul a {   
+    display: block; 
+    text-decoration: none;
+    font-weight: bold;
+    color:white;
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+nav ul a:hover {   
+    background-color: rgba(0,0,0,0.1);   
+} 
+
+
+/* Breakpoint 1 (601 px) M e d i u m  S i z e */
+@media screen and (min-width: 601px) {
+   main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    
+   }
+   .col {
+    flex-grow: 1;
+    margin: 0;
+   
+   
+   }
+
+
+    nav ul {
+         display: flex;
+    }
+    nav ul li {
+         flex-grow: 1;
+  
+    }
+
+    nav {
+        min-height: auto;
+    }
+   
+}
