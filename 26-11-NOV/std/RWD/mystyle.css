@@ -150,21 +150,55 @@ nav ul a:hover {
 
 /* Breakpoint 2 (901 px) L A R G E  S i z e */
 @media screen and (min-width: 901px) {
+
+    header {
+          height: 100px;
+    }
     div.row {
         display: flex;
     }
 
-    nav {        
-        flex-grow: 1;
+    nav {      
+          
+        width: 300px;
+        margin-right: 20px;      
     }
 
     main {
         flex-grow: 3;
     }
 
-    ul {
+    aside {
+        flex-grow: 1;
+        margin-left: 20px;    
+    }
+
+    nav ul {
         flex-direction: column;
     }
+    
+    nav ul a { 
+        text-align: left;    
+    }
+
+
+    div#logo img {
+        width: 125%;
+    }
+
+    
+    div#company, div#slogan  {
+        text-align: center;
+    }
+    
+    div#company {
+        font-size: 2.4rem;
+    }
+  
+    div#slogan {
+        font-size: 1.6rem;
+    }
+
 
 
    
